@@ -1,0 +1,55 @@
+================================================================================
+Symbol Table: Global                                         Parent: null
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+test            int             local       1           4       0       null
+t00             int             temp        1           4       4       null
+main            int             function                4       8       main
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: main                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+retVal          int             local                   4       0       null
+a               int             local       1           4       4       null
+t00             int             temp        1           4       8       null
+b               int             local       2           4       12      null
+t01             int             temp        2           4       16      null
+c               int             local                   4       20      null
+t02             int             temp                    4       24      null
+t03             int             temp                    4       28      null
+check           int             local                   4       32      null
+t04             int             temp                    4       36      null
+t05             int             temp                    4       40      null
+t06             int             temp                    4       44      null
+i               int             local                   4       48      null
+--------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+0:	t00 = 1
+1:	test = t00
+2:	t00 = 1
+3:	a = t00
+4:	t01 = 2
+5:	b = t01
+6:	t02 = a + b
+7:	c = t02
+8:	t03 = a
+9:	a = a + 1
+10:	t04 = b * c
+11:	t05 = a + t04
+12:	check = t05
+13:	if check < c goto 16
+14:	goto 19
+15:	goto 19
+16:	t06 = a | b
+17:	c = t06
+18:	goto 19
+19:	a = a + 1
+20:	i = a
+------------------------------

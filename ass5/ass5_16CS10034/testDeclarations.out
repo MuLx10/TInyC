@@ -1,0 +1,60 @@
+================================================================================
+Symbol Table: Global                                         Parent: null
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+d               double          local       2.3         8       0       null
+t00             double          temp        2.3         8       8       null
+i               int             local                   4       16      null
+w               arr(10, int)    local                   40      20      null
+t01             int             temp        10          4       60      null
+a               int             local       4           4       64      null
+t02             int             temp        4           4       68      null
+p               ptr(int)        local                   4       72      null
+b               int             local                   4       76      null
+func            void            function                0       80      func
+c               char            local                   1       80      null
+main            int             function                4       81      main
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: func                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+i               int             param                   4       0       null
+d               double          param                   8       4       null
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: main                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+retVal          int             local                   4       0       null
+e               double          local       2.3         8       4       null
+t00             double          temp        2.3         8       12      null
+f               int             local                   4       20      null
+w               arr(7, int)     local                   28      24      null
+t01             int             temp        7           4       52      null
+r               int             local       4           4       56      null
+t02             int             temp        4           4       60      null
+q               ptr(int)        local                   4       64      null
+y               int             local                   4       68      null
+h               char            local                   1       72      null
+--------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+0:	t00 = 2.3
+1:	d = t00
+2:	t01 = 10
+3:	t02 = 4
+4:	a = t02
+5:	t00 = 2.3
+6:	e = t00
+7:	t01 = 7
+8:	t02 = 4
+9:	r = t02
+------------------------------

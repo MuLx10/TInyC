@@ -1,0 +1,97 @@
+================================================================================
+Symbol Table: Global                                         Parent: null
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+add             int             function                4       0       add
+main            void            function                0       4       main
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: add                                            Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+a               int             param                   4       0       null
+b               int             param                   4       4       null
+retVal          int             local                   4       8       null
+t00             int             temp        10          4       12      null
+x               ptr(int)        local                   4       16      null
+y               int             local                   4       20      null
+t01             ptr(int)        temp                    4       24      null
+t02             int             temp                    4       28      null
+t03             int             temp                    4       32      null
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: main                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+i               int             local                   4       0       null
+a               arr(10, int)    local                   40      4       null
+t00             int             temp        10          4       44      null
+v               int             local       5           4       48      null
+t01             int             temp        5           4       52      null
+d               double          local                   8       56      null
+t02             int             temp        1           4       64      null
+t03             int             temp        10          4       68      null
+t04             int             temp                    4       72      null
+t05             int             temp                    4       76      null
+t06             int             temp                    4       80      null
+t07             int             temp                    4       84      null
+t08             int             temp        1           4       88      null
+t09             int             temp                    4       92      null
+t10             int             temp                    4       96      null
+t11             int             temp                    4       100     null
+t12             int             temp        2           4       104     null
+t13             int             temp        1           4       108     null
+--------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+0:	t00 = 10
+1:	a = t00
+2:	t01 = &y
+3:	x = t01
+4:	t02 = *x
+5:	*x = y
+6:	t03 = *x
+7:	y = t03
+8:	t00 = 10
+9:	t01 = 5
+10:	v = t01
+11:	t02 = 1
+12:	i = t02
+13:	t03 = 10
+14:	t04 = t03 * 4
+15:	t05 = a[t04]
+16:	if i < t05 goto 21
+17:	goto 24
+18:	t06 = i
+19:	i = i + 1
+20:	goto 13
+21:	t07 = i
+22:	i = i + 1
+23:	goto 18
+24:	t08 = 1
+25:	t09 = i - t08
+26:	i = t09
+27:	t10 = i * 4
+28:	t11 = a[t10]
+29:	if t11 < v goto 24
+30:	goto 31
+31:	t12 = 2
+32:	i = t12
+33:	goto 36
+34:	if v == 0 goto 42
+35:	goto 39
+36:	if i == 0 goto 42
+37:	goto 34
+38:	goto 42
+39:	t13 = 1
+40:	i = t13
+41:	goto 42
+42:	ret 
+------------------------------

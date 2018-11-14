@@ -1,0 +1,218 @@
+================================================================================
+Symbol Table: Global                                         Parent: null
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+test            int             local       5           4       0       null
+t00             int             temp        5           4       4       null
+d               double          local       2.3         8       8       null
+t01             double          temp        2.3         8       16      null
+i               int             local                   4       24      null
+w               arr(10, int)    local                   40      28      null
+t02             int             temp        10          4       68      null
+a               int             local       4           4       72      null
+t03             int             temp        4           4       76      null
+p               ptr(int)        local                   4       80      null
+b               int             local                   4       84      null
+func            void            function                0       88      func
+c               char            local                   1       88      null
+main            int             function                4       89      main
+factorial       int             function                4       93      factorial
+add             int             function                4       97      add
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: func                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+i               int             param                   4       0       null
+d               double          param                   8       4       null
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: main                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+retVal          int             local                   4       0       null
+a               arr(10, int)    local       1           40      4       null
+t00             int             temp        10          4       44      null
+x               ptr(int)        local                   4       48      null
+y               int             local                   4       52      null
+t01             ptr(int)        temp                    4       56      null
+t02             int             temp                    4       60      null
+t03             int             temp                    4       64      null
+t04             int             temp        1           4       68      null
+b               int             local       2           4       72      null
+t05             int             temp        2           4       76      null
+c               int             local                   4       80      null
+t06             int             temp                    4       84      null
+t07             int             temp                    4       88      null
+check           int             local                   4       92      null
+t08             int             temp                    4       96      null
+t09             int             temp                    4       100     null
+t10             int             temp                    4       104     null
+i               int             local                   4       108     null
+n               int             local       6           4       112     null
+t11             int             temp        6           4       116     null
+fn              int             local                   4       120     null
+factorial       int             local                   4       124     null
+t12             int             temp                    4       128     null
+t13             int             temp        10          4       132     null
+v               int             local       5           4       136     null
+t14             int             temp        5           4       140     null
+d               double          local                   8       144     null
+t15             int             temp        1           4       152     null
+t16             int             temp        10          4       156     null
+t17             int             temp                    4       160     null
+t18             int             temp                    4       164     null
+t19             int             temp                    4       168     null
+t20             int             temp                    4       172     null
+t21             int             temp        1           4       176     null
+t22             int             temp                    4       180     null
+t23             int             temp                    4       184     null
+t24             int             temp                    4       188     null
+t25             int             temp        2           4       192     null
+t26             int             temp        1           4       196     null
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: factorial                                      Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+n               int             param                   4       0       null
+retVal          int             local                   4       4       null
+m               int             local                   4       8       null
+t00             int             temp        1           4       12      null
+t01             int             temp                    4       16      null
+r               int             local       1           4       20      null
+t02             int             temp        1           4       24      null
+fn              int             local                   4       28      null
+factorial       int             local                   4       32      null
+t03             int             temp        1           4       36      null
+t04             int             temp                    4       40      null
+t05             int             temp                    4       44      null
+t06             int             temp                    4       48      null
+--------------------------------------------------------------------------------
+
+================================================================================
+Symbol Table: add                                            Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Category    Init Val    Size    Offset  Nest
+--------------------------------------------------------------------------------
+a               int             param                   4       0       null
+b               int             param                   4       4       null
+retVal          int             local                   4       8       null
+t00             int             temp        10          4       12      null
+x               ptr(int)        local                   4       16      null
+y               int             local                   4       20      null
+t01             ptr(int)        temp                    4       24      null
+t02             int             temp                    4       28      null
+t03             int             temp                    4       32      null
+--------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+0:	t00 = 5
+1:	test = t00
+2:	t01 = 2.3
+3:	d = t01
+4:	t02 = 10
+5:	t03 = 4
+6:	a = t03
+7:	t00 = 10
+8:	a = t00
+9:	t01 = &y
+10:	x = t01
+11:	t02 = *x
+12:	*x = y
+13:	t03 = *x
+14:	y = t03
+15:	t04 = 1
+16:	a = t04
+17:	t05 = 2
+18:	b = t05
+19:	t06 = a + b
+20:	c = t06
+21:	t07 = a
+22:	a = a + 1
+23:	t08 = b * c
+24:	t09 = a + t08
+25:	check = t09
+26:	if check < c goto 29
+27:	goto 32
+28:	goto 32
+29:	t10 = a | b
+30:	c = t10
+31:	goto 32
+32:	a = a + 1
+33:	i = a
+34:	t11 = 6
+35:	n = t11
+36:	param n
+37:	t12 = call factorial, 1
+38:	fn = t12
+39:	t13 = 10
+40:	t14 = 5
+41:	v = t14
+42:	t15 = 1
+43:	i = t15
+44:	t16 = 10
+45:	t17 = t16 * 4
+46:	t18 = a[t17]
+47:	if i < t18 goto 52
+48:	goto 55
+49:	t19 = i
+50:	i = i + 1
+51:	goto 44
+52:	t20 = i
+53:	i = i + 1
+54:	goto 49
+55:	t21 = 1
+56:	t22 = i - t21
+57:	i = t22
+58:	t23 = i * 4
+59:	t24 = a[t23]
+60:	if t24 < v goto 55
+61:	goto 62
+62:	t25 = 2
+63:	i = t25
+64:	goto 67
+65:	if v == 0 goto 73
+66:	goto 70
+67:	if i == 0 goto 73
+68:	goto 65
+69:	goto 73
+70:	t26 = 1
+71:	i = t26
+72:	goto 73
+73:	ret 
+74:	t00 = 1
+75:	t01 = n - t00
+76:	m = t01
+77:	t02 = 1
+78:	r = t02
+79:	goto 88
+80:	t03 = 1
+81:	t04 = m - t03
+82:	param t04
+83:	t05 = call factorial, 1
+84:	fn = t05
+85:	t06 = n * fn
+86:	r = t06
+87:	goto 90
+88:	if m == 0 goto 90
+89:	goto 80
+90:	ret r
+91:	t00 = 10
+92:	a = t00
+93:	t01 = &y
+94:	x = t01
+95:	t02 = *x
+96:	*x = y
+97:	t03 = *x
+98:	y = t03
+------------------------------
